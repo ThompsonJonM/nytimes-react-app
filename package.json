@@ -19,11 +19,14 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "chromedriver": "^2.32.3",
     "enzyme": "^2.9.1",
     "jest": "^21.1.0",
     "jest-cli": "^21.1.0",
     "jsdom": "^11.2.0",
     "mocha": "^3.5.3",
-    "react-addons-test-utils": "^15.6.0"
+    "react-addons-test-utils": "^15.6.0",
+    "selenium-webdriver": "^3.5.0",
+    "supertest": "^3.0.0"
   }
 }
