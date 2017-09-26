@@ -1,10 +1,11 @@
-import expect from ('chai').expect;
+import { expect } from 'chai';
 import request from 'supertest';
-import server from './../../server';
 
-describe('Listen', () => {
+describe('Listen', function() {
+    var server;
+
     beforeEach(function() {
-        
+        server = require('./../../server');
     });
 
     afterEach(function() {
