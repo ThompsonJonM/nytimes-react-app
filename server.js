@@ -29,9 +29,9 @@ app.get('/', (req, res) => {
     res.status(200).send('ok');
 });
 
-var server = app.listen(3000, function() {
-    var PORT = server.address().port;
+const server = app.listen(3000, () => {
+    let PORT = server.address().port;
     console.log('Server running. Listening on ' + PORT);
 }); 
 
-module.exports = server;
+export default server;
