@@ -25,6 +25,18 @@ db.once('open', () => {
     console.log('Database connection successful.');
 });
 
+app.delete('/api/saved', (req, res) => {
+    res.status(200).send('ok');
+});
+
+app.post('/api/saved', (req, res) => {
+    res.status(200).send('ok');
+});
+
+app.get('/api/saved', (req, res) => {
+    res.status(200).send('ok');
+});
+
 app.get('/', (req, res) => {
     res.status(200).send('ok');
 });

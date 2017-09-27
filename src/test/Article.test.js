@@ -24,11 +24,11 @@ it('Should validate title input', (done) => {
     testModel.save(done);
 });
 
-it('Should fail due to missing title/url string', (done) => {
+it('Should validate against bad title/url input', (done) => {
     let testModel = article ({
-        title: '',
+        title: !221,
         date: '',
-        url: ''
+        url: 22
     });
 
     testModel.save(done);
