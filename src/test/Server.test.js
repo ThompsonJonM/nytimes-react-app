@@ -1,3 +1,6 @@
+'use strict'
+
+// Dependencies
 import { expect } from 'chai';
 import request from 'supertest';
 import server from './../../server';

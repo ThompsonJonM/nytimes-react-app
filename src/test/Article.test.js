@@ -1,3 +1,5 @@
+'use strict'
+
 // Dependencies
 import mongoose from 'mongoose';
 import chai, { expect } from 'chai';
