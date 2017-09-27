@@ -23,7 +23,7 @@ it('Responds to /api/saved', (done) => {
 it('Responds to /', (done) => {
     request(server)
         .get('/')
-        .expect('./public/index.html', done);
+        .expect(200, done);
 });
 
 it('Should provide 404 for all else', (done) => {
