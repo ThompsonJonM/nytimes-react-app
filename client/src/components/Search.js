@@ -1,6 +1,28 @@
 // Dependencies
 import React from 'react';
-import Router from 'react-router';
-import helpers from '../utilities/helpers';
+import Query from './Query';
+import Results from './Results';
 
-export default class Search extends React.Component {}
+export default class Search extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <div className='col-md-12'>
+                <div className='row'>
+                    <div className='col-sm-12'>
+                        <Query setTerm={this.props.setTerm} />
+                    </ div>
+                </ div>
+
+                <div className='row'>
+                    <div className='col-sm-12'>
+                        <Results results={this.props.results} setArticleToSave={this.props.setArticleToSave} resultToSave={this.props.resultToSave} />
+                    </ div>
+                </ div>
+            </ div>
+        );
+    }
+}

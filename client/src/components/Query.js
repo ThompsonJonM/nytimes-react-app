@@ -49,5 +49,3 @@ export default class Query extends React.Component {
         );
     }
 }
-
-export default Query;
