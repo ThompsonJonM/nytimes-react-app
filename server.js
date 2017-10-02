@@ -3,6 +3,7 @@
 // Dependencies
 import express from 'express';
 import bodyParser from 'body-parser';
+import path from 'path';
 import mongoose from 'mongoose';
 
 // Update mongoose promises to current promises
@@ -11,6 +12,7 @@ mongoose.Promise = Promise;
 // Import the article schema for Mongo
 import article from './models/article';
 
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Body-Parser
@@ -19,7 +21,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
-app.use(express.static('./public'));
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // Mongoose connection (will change when heroku involved)
 mongoose.connect('mongodb://localhost/nytimesDB');
@@ -72,15 +77,16 @@ app.get('/api/saved', (req, res) => {
     });
 });
 
-// localhost:3000/ should respond with index.html
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
+// Send every request to the React app
+// Define any API routes before this runs
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-const server = app.listen(3000, () => {
-    let PORT = server.address().port;
+const server = app.listen(PORT, () => {
     console.log('Server running. Listening on ' + PORT);
 }); 
 
 // Export server for testing
 export default server;
+export default PORT;
