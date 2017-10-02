@@ -10,7 +10,7 @@ import mongoose from 'mongoose';
 mongoose.Promise = Promise;
 
 // Import the article schema for Mongo
-import article from './models/article';
+import article from './client/src/models/article';
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -44,9 +44,9 @@ db.once('open', () => {
 app.delete('/api/saved', (req, res) => {
     article.findByIdAndRemove(req.params.id, (err, response) => {
         if (err) {
-            res.send('An error occurred while deleting this article: ' + err);
+            res.status(err).send('An error occurred while deleting this article.');
         } else {
-            res.send('Article deleted.');
+            res.status(200).send('Article deleted.');
         }
     });
 });
@@ -59,9 +59,9 @@ app.post('/api/saved', (req, res) => {
         url: req.body.url
     }, (err) => {
         if (err) {
-            res.send('Something went wrong while saving this article: ', + err)
+            res.status(err).send('Something went wrong while saving this article.')
         } else {
-            res.send('Article saved.');
+            res.status(200).send('Article saved.');
         }
     });
 });
@@ -72,7 +72,7 @@ app.get('/api/saved', (req, res) => {
         if (err) {
             console.log('Something went wrong while finding your saved articles: ', + err);
         } else {
-            res.send(doc);
+            res.status(200).send(doc);
         }
     });
 });
@@ -88,5 +88,4 @@ const server = app.listen(PORT, () => {
 }); 
 
 // Export server for testing
-export default server;
-export default PORT;
+export { server, PORT };
