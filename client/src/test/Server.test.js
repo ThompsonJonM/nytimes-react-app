@@ -3,7 +3,7 @@
 // Dependencies
 import { expect } from 'chai';
 import request from 'supertest';
-import server from './../../server';
+import { server, PORT } from './../../../server';
 
 it('Responds to /api/saved', (done) => {
     request(server)
