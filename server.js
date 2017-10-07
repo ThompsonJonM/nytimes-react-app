@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const logger = require('morgan');
 const mongoose = require('mongoose');
 
 // Update mongoose promises to current promises

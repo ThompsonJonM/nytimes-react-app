@@ -36,12 +36,14 @@ export default class Query extends React.Component {
 
                 <div className='panel-body'>
                     <form onSubmit={this.handleSubmit}>
-                        <div className='form-group'>
-                            <input type='text' className='form-control' id='term' value={this.state.term} onChange={this.handleChange} required />
-                            
+                        <div className='row'>
+                            <div className='col-10 form-group'>
+                                <input type='text' className='form-control' id='term' value={this.state.term} onChange={this.handleChange} required />
+                            </ div>
                             <br />
-
-                            <button type='submit' className='btn btn-primary'> Search </ button>
+                            <div className='col-2'>
+                                <button type='submit' className='btn btn-primary'> Search </ button>
+                            </ div>
                         </ div>
                     </ form>
                 </ div>

@@ -24,11 +24,11 @@ export default class Main extends React.Component {
     }
 
     componentDidMount() {
-        helpers.getSaved().then(function(response) {
-            console.log('Current saved articles: ' + response);
-            if (response !== this.state.saved) {
-                console.log('Saved articles: ' + response.data);
-                this.setState({ saved: response.data });
+        helpers.getSaved().then(function(res) {
+            console.log('Current saved articles: ' + res);
+            if (res !== this.state.saved) {
+                console.log('Saved articles: ' + res.data);
+                this.setState({ saved: res.data });
             }
         }.bind(this));
     }
@@ -88,16 +88,24 @@ export default class Main extends React.Component {
         return (
             <div className='container'>
                 <div className='jumbotron'>
-                    <h2> NY Times React Scrubber </ h2>
-                    <p> Search for articles which interest you </ p>
+                    <div className='container text-center'>
+                        <h2> NY Times React Scrubber </ h2>
+                    </ div>
                 </ div>
 
-                <div className='row'>
+                <div className='row text-center'>
                     <Search setTerm={ this.setTerm } setArticleToSave={ this.setArticleToSave } saved={ this.state.saved } results={ this.state.results } resultToSave={ this.state.resultToSave } />
                 </ div>
 
-                <div className='row'>
+                <div className='row text-center'>
                     <Saved saved={ this.state.saved } deleteArticle={ this.deleteArticle } />
+                </ div>
+
+                <div className='container text-center footer'>
+                    <br />
+                    <br />
+                    <br />
+                    <a href="https://thompsonjonm.github.io/"> Created by Jonathan Thompson </ a>
                 </ div>
             </ div>
         );
