@@ -3,7 +3,7 @@
 // Dependencies
 import axios from 'axios';
 
-const authKey = '';
+const authKey = '589a3113f5dd4c869a84d17c5451627d';
 
 const helpers = {
     runQuery: (searchTerm) => {

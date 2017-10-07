@@ -41,7 +41,7 @@ db.once('open', () => {
 });
 
 // Delete route for saved articles
-app.delete('/api/saved', (req, res) => {
+app.delete('/api/saved/:id', (req, res) => {
     article.findByIdAndRemove(req.params.id, (err, response) => {
         if (err) {
             res.status(err).send('An error occurred while deleting this article.');
@@ -79,7 +79,7 @@ app.get('/api/saved', (req, res) => {
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("/", function(req, res) {
+app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
