@@ -16,18 +16,18 @@ export default class Results extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(index, headline, pubdate, url) {
+    handleSubmit(index, headline, dateline, url) {
 
         console.log('Article headline: ' + headline);
-        console.log('Date published: ' + pubdate);
+        console.log('Date published: ' + dateline);
 
         let newState = this.state.article;
 
         newState.title = headline;
-        newState.date = pubdate;
+        newState.date = dateline;
         newState.url = url
 
-        this.setState({ artile: newState });
+        this.setState({ article: newState });
 
         this.props.setArticleToSave(index, this.state.article);
     }

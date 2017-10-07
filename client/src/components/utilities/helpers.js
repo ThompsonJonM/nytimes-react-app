@@ -38,7 +38,7 @@ const helpers = {
 
     deleteArticle: (articleID) => {
         return axios.delete('/api/saved/' + articleID).then(response => {
-            console.log('Article deleted: ' + response);
+            console.log('Article deleted.');
         }).catch(err => {
             console.log('An error occurred while attempting to delete the article: ' + err);
         });
