@@ -1,1 +1,6 @@
 /* Style here */
+
+* {
+	box-sizing: border-box;
+}
+

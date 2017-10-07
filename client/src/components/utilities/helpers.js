@@ -1,5 +1,3 @@
-'use strict'
-
 // Dependencies
 import axios from 'axios';
 
@@ -39,10 +37,12 @@ const helpers = {
     },
 
     deleteArticle: (articleID) => {
-        return axios.delete('/api/saved' + articleID).then(res => {
-            console.log('Article deleted: ' + res);
+        return axios.delete('/api/saved/' + articleID).then(response => {
+            console.log('Article deleted: ' + response);
         }).catch(err => {
             console.log('An error occurred while attempting to delete the article: ' + err);
         });
     }
 };
+
+export default helpers;

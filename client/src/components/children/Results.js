@@ -17,7 +17,6 @@ export default class Results extends React.Component {
     }
 
     handleSubmit(index, headline, pubdate, url) {
-        event.preventDefault();
 
         console.log('Article headline: ' + headline);
         console.log('Date published: ' + pubdate);

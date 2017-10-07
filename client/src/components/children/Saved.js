@@ -2,9 +2,6 @@
 import React from 'react';
 
 export default class Saved extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
@@ -19,7 +16,7 @@ export default class Saved extends React.Component {
                             <div className='panel-body'>
                                 {this.props.saved.map((article, i) => {
                                     return (
-                                        <div key={i} onClick={() => this.props.deleteArticle(article_id, i)} className='row savedRow'>
+                                        <div key={i} onClick={() => this.props.deleteArticle(article._id, i)} className='row savedRow'>
                                             <div className='col-sm-5 articleText'>
                                                 <a href={article.url}> {article.title} </ a>
                                             </ div>

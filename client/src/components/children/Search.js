@@ -4,9 +4,6 @@ import Query from './Query';
 import Results from './Results';
 
 export default class Search extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (

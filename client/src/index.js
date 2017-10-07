@@ -8,6 +8,7 @@ import Main from './components/Main';
 import registerServiceWorker from './registerServiceWorker';
 
 // Style
+import './stylesheets/reset.css';
 import './stylesheets/index.css';
 
 ReactDOM.render(

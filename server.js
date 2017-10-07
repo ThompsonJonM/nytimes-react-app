@@ -1,16 +1,14 @@
-'use strict'
-
 // Dependencies
-import express from 'express';
-import bodyParser from 'body-parser';
-import path from 'path';
-import mongoose from 'mongoose';
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const mongoose = require('mongoose');
 
 // Update mongoose promises to current promises
 mongoose.Promise = Promise;
 
 // Import the article schema for Mongo
-import article from './client/src/models/article';
+const article = require('./client/src/models/article');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -41,8 +39,8 @@ db.once('open', () => {
 });
 
 // Delete route for saved articles
-app.delete('/api/saved/:id', (req, res) => {
-    article.findByIdAndRemove(req.params.id, (err, response) => {
+app.delete('/api/saved/:id', function(req, res) {
+    article.findByIdAndRemove(req.params.id, function(err, response) {
         if (err) {
             res.status(err).send('An error occurred while deleting this article.');
         } else {
@@ -52,7 +50,7 @@ app.delete('/api/saved/:id', (req, res) => {
 });
 
 // Post route for saved articles
-app.post('/api/saved', (req, res) => {
+app.post('/api/saved', function(req, res) {
     article.create({
         title: req.body.title,
         date: req.body.date,
@@ -67,8 +65,8 @@ app.post('/api/saved', (req, res) => {
 });
 
 // Get route for saved articles
-app.get('/api/saved', (req, res) => {
-    article.find({}).limit(10).exec((err, doc) => {
+app.get('/api/saved', function(req, res) {
+    article.find({}).limit(10).exec(function(err, doc) {
         if (err) {
             console.log('Something went wrong while finding your saved articles: ', + err);
         } else {
@@ -83,9 +81,9 @@ app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-const server = app.listen(PORT, () => {
+const server = app.listen(PORT, function() {
     console.log('Server running. Listening on ' + PORT);
 }); 
 
 // Export server for testing
-export { server, PORT };
+module.exports = { server, PORT };

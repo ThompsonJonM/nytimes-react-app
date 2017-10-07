@@ -1,11 +1,8 @@
 // Dependencies
 import React from 'react';
-import Router from 'react-router';
 import helpers from './utilities/helpers';
 
 // Children
-import Query from './children/Query'
-import Results from './children/Results'
 import Saved from './children/Saved'
 import Search from './children/Search'
 
@@ -70,9 +67,9 @@ export default class Main extends React.Component {
         helpers.saveArticle(this.state.resultToSave.title, this.state.resultToSave.date, this.state.resultToSave.url).then((data) => {
             console.log('Saved data: ' + data);
 
-            this.setState(previousState => ({
-                saved: [...previousState.saved, this.state.resultToSave],
-                results: [...previousState.results.slice(0, index), ...previousState.results.slice(index+1)]
+            this.setState(prevState => ({
+                saved: [...prevState.saved, this.state.resultToSave],
+                results: [...prevState.results.slice(0, index), ...prevState.results.slice(index+1)]
             }));
         });
     }

@@ -1,7 +1,7 @@
 'use strict'
 
 // Dependencies
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -23,4 +23,4 @@ const articleSchema = new Schema({
 
 const article = mongoose.model('article', articleSchema);
 
-export default article;
+module.exports = article;
