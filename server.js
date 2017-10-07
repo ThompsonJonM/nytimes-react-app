@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Mongoose connection (will change when heroku involved)
 // mongoose.connect('mongodb://localhost/nytimesDB');
-mongoose.connect('mongodb://heroku_8kdqp265:uSaf2@15@ds113835.mlab.com:13835/heroku_8kdqp265')
+mongoose.connect('mongodb://heroku_8kdqp265:@ds113835.mlab.com:13835/heroku_8kdqp265')
 const db = mongoose.connection;
 
 // DB error message
